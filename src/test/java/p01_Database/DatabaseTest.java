@@ -62,4 +62,12 @@ public class DatabaseTest {
         Assert.assertEquals(--searchingIndex, database.getElements().length - 1);
     }
 
+    @Test
+    public void testFetchMethodToReturnArray() throws OperationNotSupportedException {
+        Integer[] numbers = {3, 16, 84, 10, 35};
+        Database database = new Database(numbers);
+        Integer[] result = database.getElements();
+        Assert.assertEquals(numbers, result);
+    }
+
 }
