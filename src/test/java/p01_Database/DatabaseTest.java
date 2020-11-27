@@ -45,4 +45,21 @@ public class DatabaseTest {
         Assert.assertEquals(searchingIndex, database.getElements().length - 1, 0);
     }
 
+    @Test(expected = OperationNotSupportedException.class)
+    public void testRemovingElementFromEmptyDatabase() throws OperationNotSupportedException {
+        Database database = new Database(1);
+        database.remove();
+        database.remove();
+    }
+
+    @Test
+    public void testRemoveCommandForRemoveElementFromLastIndex() throws OperationNotSupportedException {
+        Database database = new Database(1, 5, 10);
+        int searchingIndex = database.getElements().length - 1;
+        database.remove();
+        Assert.assertEquals(--searchingIndex, database.getElements().length - 1);
+        database.remove();
+        Assert.assertEquals(--searchingIndex, database.getElements().length - 1);
+    }
+
 }
