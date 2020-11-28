@@ -15,10 +15,6 @@ public class Database {
         this.index = elementsCount - 1;
     }
 
-    public int getIndex() {
-        return this.index;
-    }
-
     public void add(Integer element) throws OperationNotSupportedException {
         if (element == null) {
             throw new OperationNotSupportedException();
